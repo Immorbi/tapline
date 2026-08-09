@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tapline — The NFC Google Review Card System</title>
+<meta name="description" content="The complete NFC Google-review-card system: vetted suppliers, exact pricing, card programming, and the walk-in scripts used to close local businesses.">
+<meta name="theme-color" content="#F7F7F7">
+
+<meta property="og:title" content="Tapline — The NFC Google Review Card System">
+<meta property="og:description" content="Vetted suppliers, exact pricing, and the scripts to close local businesses. $89 CAD, launch pricing.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<!-- Gates the reveal animation on JS being alive. Without this, a script
+     failure leaves every .reveal element stuck at opacity:0 — a blank page. -->
+<script>document.documentElement.classList.add('js');</script>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><i></i></div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="site-head" id="head">
+  <div class="shell head-in">
+    <a class="brand" href="#top" aria-label="Tapline home">
+      <img class="brand-logo" src="assets/img/logo.svg" alt="Tapline" width="286" height="70" decoding="async">
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#math">The math</a>
+      <a href="#inside">What's inside</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="head-actions">
+      <span class="cur" aria-label="Currency">CAD</span>
+      <a class="btn btn-blue btn-sm" href="#pricing" data-magnet>Get started</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="#how">How it works</a>
+    <a href="#math">The math</a>
+    <a href="#inside">What's inside</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a class="btn btn-blue" href="#pricing">Get the full method</a>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="shell hero-in">
+
+    <div class="hero-copy">
+      <h1 class="reveal" data-d="1">
+        The card costs <span class="num">$2</span>.<br>
+        The close is worth <em>$200</em>.
+      </h1>
+
+      <p class="lede reveal" data-d="2">
+        Tapline is the complete NFC Google-review-card system — vetted suppliers,
+        the exact pricing sheet, card programming step by step, and the walk-in
+        scripts we use to close local businesses.
+      </p>
+
+      <div class="price-row reveal" data-d="3">
+        <span class="price">$89<small>CAD</small></span>
+        <span class="price-was">$149</span>
+        <span class="tag-off">40% off</span>
+      </div>
+
+      <div class="cta-row reveal" data-d="4">
+        <a class="btn btn-split btn-lg" href="#pricing"><span class="btn-arrow" aria-hidden="true"><span>→</span></span><span class="btn-label">Get the full method</span></a>
+        <a class="btn btn-ghost btn-lg" href="#inside">See what's inside <span class="arw" aria-hidden="true">&rarr;</span></a>
+      </div>
+
+      <dl class="specs reveal" data-d="5">
+        <div><dt>Delivery</dt><dd>Instant</dd></div>
+        <div><dt>Updates</dt><dd>Lifetime</dd></div>
+        <div><dt>Guarantee</dt><dd>7-day refund</dd></div>
+      </dl>
+    </div>
+
+    <!-- ── Card object ── -->
+    <div class="hero-art reveal" data-d="3" aria-hidden="true">
+      <div class="stage" id="stage">
+        <!-- The actual product: a tap-to-review counter plaque. -->
+        <div class="card3d" id="card3d">
+          <div class="plaque">
+
+            <div class="plaque-top">
+              <span class="g-mark">
+                <svg viewBox="0 0 48 48" role="img" aria-label="Google">
+                  <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+                  <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+                  <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/>
+                  <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+                </svg>
+              </span>
+
+              <div class="plaque-head">
+                <span class="ph-1">review us</span>
+                <span class="ph-2">on Google</span>
+                <span class="ph-stars">★★★★★</span>
+              </div>
+
+              <svg class="plaque-wave" viewBox="0 0 240 26" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 15C46 3 96 1 146 8c34 5 66 12 94 9v9H0z"/>
+              </svg>
+            </div>
+
+            <div class="plaque-bottom">
+              <div class="pb-col">
+                <span class="pb-label">Tap your phone</span>
+                <svg class="pb-ico" viewBox="0 0 64 44" aria-hidden="true">
+                  <path d="M6 10a15 15 0 0 1 0 24M14 15a8.5 8.5 0 0 1 0 14M21.5 19.5a2.5 2.5 0 0 1 0 5"/>
+                  <rect x="31" y="4" width="21" height="36" rx="3.5"/>
+                  <path d="M38 9.5h7"/>
+                  <path d="M33 40c-2 2-4 2.5-6.5 2.2"/>
+                  <text x="41.5" y="26" text-anchor="middle">NFC</text>
+                </svg>
+              </div>
+
+              <span class="pb-or">or</span>
+
+              <div class="pb-col">
+                <span class="pb-label">Scan QR code</span>
+                <svg class="pb-qr" viewBox="0 0 56 56" aria-hidden="true">
+                  <g class="qr-bracket">
+                    <path d="M2 14V2h12M42 2h12v12M54 42v12H42M14 54H2V42"/>
+                  </g>
+                  <g class="qr-mod">
+                    <rect x="11" y="11" width="12" height="12"/>
+                    <rect x="33" y="11" width="12" height="12"/>
+                    <rect x="11" y="33" width="12" height="12"/>
+                    <rect x="27" y="17" width="3" height="3"/>
+                    <rect x="27" y="23" width="3" height="3"/>
+                    <rect x="30" y="27" width="3" height="3"/>
+                    <rect x="24" y="27" width="3" height="3"/>
+                    <rect x="33" y="30" width="3" height="3"/>
+                    <rect x="39" y="30" width="3" height="3"/>
+                    <rect x="27" y="36" width="3" height="3"/>
+                    <rect x="33" y="39" width="3" height="3"/>
+                    <rect x="40" y="36" width="3" height="3"/>
+                    <rect x="27" y="42" width="3" height="3"/>
+                    <rect x="36" y="45" width="3" height="3"/>
+                    <rect x="42" y="42" width="3" height="3"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="review-pop" id="reviewPop">
+          <div class="rp-head">
+            <span class="rp-avatar">L</span>
+            <div>
+              <b>Local Coffee Co.</b>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p>“Tapped the card at checkout — the review was posted in ten seconds.”</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="shell"><div class="dots" aria-hidden="true"></div></div>
+
+<!-- ══════════════ 01 · PROBLEM ══════════════ -->
+<section class="sec" id="problem">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <div class="sec-bar"><span class="sec-n">01</span><span class="sec-l">The problem</span></div>
+      <h2>Three walls. Everyone hits the same ones.</h2>
+      <p class="sec-sub">Nothing about this business is hard. It's just undocumented — so most people stall in exactly the same three places.</p>
+    </div>
+
+    <ol class="walls">
+      <li class="wall reveal" data-d="1">
+        <span class="wall-n">i</span>
+        <h3>You can't find a real supplier</h3>
+        <p>Search results are resellers with 500-unit minimums, or chips that won't hold a link. You lose two weeks and $60 on samples that don't work.</p>
+      </li>
+      <li class="wall reveal" data-d="2">
+        <span class="wall-n">ii</span>
+        <h3>You have no idea what to charge</h3>
+        <p>Price too low and it reads as a gimmick. Price blind and you can't answer “why that much?” — which is the moment the sale dies.</p>
+      </li>
+      <li class="wall reveal" data-d="3">
+        <span class="wall-n">iii</span>
+        <h3>You freeze at the door</h3>
+        <p>Without a script the pitch turns into an apology. The owner is busy, you're vague, and you walk out with a card still in your pocket.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════════ 02 · HOW ══════════════ -->
+<section class="sec" id="how">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <div class="sec-bar"><span class="sec-n">02</span><span class="sec-l">How it works</span></div>
+      <h2>Source. Program. Sell.</h2>
+      <p class="sec-sub">The whole system is three moves. Tapline gives you the exact material for each one.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal" data-d="1">
+        <div class="step-top"><span class="step-n">01</span><span class="step-t">Source</span></div>
+        <h3>Order blanks that actually work</h3>
+        <p>Direct supplier links, no minimum order. Which chip type to ask for, what a blank should cost you, and how to spot a reseller markup.</p>
+        <dl class="step-meta"><div><dt>Chip</dt><dd>NTAG 213/215</dd></div><div><dt>Minimum order</dt><dd>None</dd></div></dl>
+      </div>
+      <div class="step reveal" data-d="2">
+        <div class="step-top"><span class="step-n">02</span><span class="step-t">Program</span></div>
+        <h3>Write the review link in 60 seconds</h3>
+        <p>How to pull a business's Google review link, write it to the chip from an iPhone or Android, lock it so it can't be overwritten, and test it.</p>
+        <dl class="step-meta"><div><dt>Platform</dt><dd>iOS + Android</dd></div><div><dt>Tools</dt><dd>Free</dd></div></dl>
+      </div>
+      <div class="step reveal" data-d="3">
+        <div class="step-top"><span class="step-n">03</span><span class="step-t">Sell</span></div>
+        <h3>Walk in and run the demo</h3>
+        <p>The opener, the ten-second tap demo, the price ladder, and answers to the four objections you will hear over and over.</p>
+        <dl class="step-meta"><div><dt>Includes</dt><dd>Walk-in script</dd></div><div><dt>Plus</dt><dd>DM templates</dd></div></dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 03 · CALCULATOR ══════════════ -->
+<section class="sec sec-alt" id="math">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <div class="sec-bar"><span class="sec-n">03</span><span class="sec-l">The math</span></div>
+      <h2>Run the math yourself.</h2>
+      <p class="sec-sub">No screenshots, no promises. Just the arithmetic of a card business — move the sliders and see it.</p>
+    </div>
+
+    <div class="calc reveal" data-d="1">
+      <div class="calc-controls">
+        <div class="field">
+          <label for="s-qty">Cards sold per month</label>
+          <output id="o-qty" for="s-qty">20</output>
+          <input type="range" id="s-qty" min="1" max="100" value="20" step="1">
+          <div class="scale"><span>1</span><span>100</span></div>
+        </div>
+
+        <div class="field">
+          <label for="s-price">Your price per card</label>
+          <output id="o-price" for="s-price">$55</output>
+          <input type="range" id="s-price" min="20" max="150" value="55" step="5">
+          <div class="scale"><span>$20</span><span>$150</span></div>
+        </div>
+
+        <div class="field">
+          <label for="s-cost">Your cost per blank card</label>
+          <output id="o-cost" for="s-cost">$2.50</output>
+          <input type="range" id="s-cost" min="1" max="6" value="2.5" step="0.5">
+          <div class="scale"><span>$1</span><span>$6</span></div>
+        </div>
+      </div>
+
+      <div class="calc-out">
+        <div class="ko">
+          <span class="ko-label">Monthly gross profit</span>
+          <span class="ko-val" id="o-profit">$1,050</span>
+        </div>
+
+        <div class="bars" aria-hidden="true">
+          <div class="bar bar-rev"><i id="bar-rev"></i><span>Revenue</span></div>
+          <div class="bar bar-cost"><i id="bar-cost"></i><span>Card cost</span></div>
+        </div>
+
+        <dl class="figs">
+          <div><dt>Revenue</dt><dd id="o-rev">$1,100</dd></div>
+          <div><dt>Card cost</dt><dd id="o-cogs">$50</dd></div>
+          <div><dt>Margin</dt><dd id="o-margin">95%</dd></div>
+          <div><dt>Cards to cover Tapline</dt><dd id="o-payback">2</dd></div>
+        </dl>
+
+        <p class="disclaimer">
+          This is arithmetic, not a forecast. It ignores your time, travel, taxes, refunds and the fact
+          that nobody sells anything in month one without knocking on doors. Tapline gives you the
+          system — the numbers are yours to earn.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 04 · INSIDE ══════════════ -->
+<section class="sec" id="inside">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <div class="sec-bar"><span class="sec-n">04</span><span class="sec-l">What's inside</span></div>
+      <h2>What you actually get.</h2>
+      <p class="sec-sub">Eight modules. Delivered instantly, updated for life.</p>
+    </div>
+
+    <div class="bento">
+      <article class="bx bx-lg reveal" data-d="1">
+        <span class="bx-n">01</span>
+        <h3>The verified supplier list</h3>
+        <p>Direct links to suppliers who ship single units, the chip specs to request, and current landed cost per card so you know the moment you're being marked up.</p>
+        <ul class="bx-list">
+          <li>No minimum order</li>
+          <li>North-America friendly shipping</li>
+          <li>Re-checked and updated</li>
+        </ul>
+      </article>
+
+      <article class="bx reveal" data-d="2">
+        <span class="bx-n">02</span>
+        <h3>Programming walkthrough</h3>
+        <p>Find the review link, write it, lock it, test it — from a phone, with free tools.</p>
+      </article>
+
+      <article class="bx reveal" data-d="3">
+        <span class="bx-n">03</span>
+        <h3>Pricing &amp; bundle sheet</h3>
+        <p>Single-card, three-pack and counter-stand pricing, plus how to justify each tier out loud.</p>
+      </article>
+
+      <article class="bx bx-gold reveal" data-d="2">
+        <span class="bx-n">04</span>
+        <h3>The walk-in script</h3>
+        <p>Word for word: the opener, the ten-second demo, the price reveal, the silence — and the four objections with an answer for each.</p>
+      </article>
+
+      <article class="bx reveal" data-d="3">
+        <span class="bx-n">05</span>
+        <h3>DM &amp; follow-up templates</h3>
+        <p>For the owners who weren't in. Plus the follow-up cadence that gets the reply.</p>
+      </article>
+
+      <article class="bx reveal" data-d="4">
+        <span class="bx-n">06</span>
+        <h3>Demo kit setup</h3>
+        <p>How to build a sample card that lands the pitch before you've said a price.</p>
+      </article>
+
+      <article class="bx reveal" data-d="4">
+        <span class="bx-n">07</span>
+        <h3>Invoice &amp; delivery checklist</h3>
+        <p>Getting paid, handing over, and the follow-up that turns one card into a re-order.</p>
+      </article>
+
+      <article class="bx reveal" data-d="5">
+        <span class="bx-n">08</span>
+        <h3>Lifetime updates</h3>
+        <p>Suppliers change and Google changes its review flow. When they do, your copy updates.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 05 · PRICING ══════════════ -->
+<section class="sec sec-alt" id="pricing">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <div class="sec-bar"><span class="sec-n">05</span><span class="sec-l">Pricing</span></div>
+      <h2>Take the whole system, or one piece.</h2>
+      <p class="sec-sub">Buy the full method once, or start with the part you're missing.</p>
+    </div>
+
+    <div class="plans">
+      <article class="plan reveal" data-d="2">
+        <header>
+          <span class="plan-tag">Suppliers only</span>
+          <h3>Tapline Supplier List</h3>
+        </header>
+        <p class="plan-desc">Skip the research. Direct access to reliable NFC card suppliers — no minimum order required.</p>
+        <ul class="plan-list">
+          <li>Verified supplier links</li>
+          <li>Chip specs to request</li>
+          <li>Current cost benchmarks</li>
+        </ul>
+        <div class="plan-foot">
+          <span class="plan-price">$45<small>CAD</small></span>
+          <a class="btn btn-ghost" href="#" data-buy="supplier-list">Buy now <span class="arw" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+
+      <article class="plan plan-hero reveal" data-d="1">
+        <header>
+          <span class="plan-tag plan-tag-gold">Most popular · Everything</span>
+          <h3>Tapline Method — Full Access</h3>
+        </header>
+        <p class="plan-desc">Everything to go from zero to your first sale: sourcing, programming, pricing, and the scripts that close local businesses.</p>
+        <ul class="plan-list">
+          <li>All 8 modules</li>
+          <li>Supplier list included</li>
+          <li>Programming mini-course included</li>
+          <li>Walk-in script + objection handling</li>
+          <li>Lifetime updates</li>
+        </ul>
+        <div class="plan-foot">
+          <span class="plan-price">$89<small>CAD</small> <s>$149</s></span>
+          <a class="btn btn-blue" href="#" data-buy="full-access" data-magnet>Buy now <span class="arw" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+
+      <article class="plan reveal" data-d="3">
+        <header>
+          <span class="plan-tag">Mini course</span>
+          <h3>Card Programming Mini-Course</h3>
+        </header>
+        <p class="plan-desc">Learn to program and set up NFC cards correctly, step by step, in under an hour.</p>
+        <ul class="plan-list">
+          <li>iOS + Android walkthrough</li>
+          <li>Locking &amp; testing chips</li>
+          <li>Troubleshooting dead cards</li>
+        </ul>
+        <div class="plan-foot">
+          <span class="plan-price">$29<small>CAD</small></span>
+          <a class="btn btn-ghost" href="#" data-buy="mini-course">Buy now <span class="arw" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </div>
+
+    <p class="plans-note reveal">Digital delivery — access lands in your inbox immediately after checkout. Not what you expected? Email within 7 days and it's refunded.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 06 · HONEST PROOF ══════════════ -->
+<section class="sec" id="proof">
+  <div class="shell">
+    <div class="honest reveal">
+      <div class="honest-l">
+        <div class="sec-bar"><span class="sec-n">06</span><span class="sec-l">Proof</span></div>
+        <h2>We're not going to invent testimonials.</h2>
+        <p>Tapline launched in 2026. There is no wall of screenshots here, because the ones we could put up wouldn't be real — and in a business built on trust, borrowed proof costs more than it earns.</p>
+        <p>So here's what we'll stand behind instead:</p>
+      </div>
+      <ul class="honest-r">
+        <li class="reveal" data-d="1">
+          <span class="hn">01</span>
+          <b>Every supplier link is live</b>
+          <p>Checked before publication. If one dies, report it and the list is updated for everyone.</p>
+        </li>
+        <li class="reveal" data-d="2">
+          <span class="hn">02</span>
+          <b>Seven days, no argument</b>
+          <p>Open it, read it, and if it isn't what you expected — one email and you're refunded.</p>
+        </li>
+        <li class="reveal" data-d="3">
+          <span class="hn">03</span>
+          <b>Real wins get published here</b>
+          <p>As students post results, this section fills with their screenshots and their names. Not ours.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 07 · FIT ══════════════ -->
+<section class="sec sec-alt" id="fit">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <div class="sec-bar"><span class="sec-n">07</span><span class="sec-l">Fit</span></div>
+      <h2>Be honest about the fit.</h2>
+      <p class="sec-sub">This works for a specific kind of person. If that isn't you, don't buy it.</p>
+    </div>
+
+    <div class="fit">
+      <div class="fit-col fit-yes reveal" data-d="1">
+        <h3>Built for you if…</h3>
+        <ul>
+          <li>You're willing to walk into ten local businesses in an afternoon</li>
+          <li>You have about $50 to order your first batch of blanks</li>
+          <li>You'd rather follow a tested script than invent one</li>
+          <li>You want a first sale in weeks, not a brand in a year</li>
+        </ul>
+      </div>
+      <div class="fit-col fit-no reveal" data-d="2">
+        <h3>Not for you if…</h3>
+        <ul>
+          <li>You want income without talking to a single person</li>
+          <li>You're expecting a guaranteed number attached to your effort</li>
+          <li>You won't spend a dollar before you've made one</li>
+          <li>You're looking for something fully automated</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 08 · ABOUT ══════════════ -->
+<section class="sec" id="about">
+  <div class="shell">
+    <div class="about reveal">
+      <div class="about-portrait" aria-hidden="true">
+        <div class="portrait-slot">
+          <span class="ps-mono">PHOTO</span>
+          <span class="ps-note">Replace with a real photo of Gogi — 800×1000px</span>
+        </div>
+      </div>
+      <div class="about-copy">
+        <div class="sec-bar"><span class="sec-n">08</span><span class="sec-l">About</span></div>
+        <h2>About Gogi</h2>
+        <p class="about-lede">I started reselling NFC Google review cards to local businesses and turned it into a real income stream.</p>
+        <p>The whole thing took me months longer than it should have — the wrong suppliers, cards that wouldn't program, prices I pulled out of thin air, and a first pitch so bad the owner thought I was fundraising for a school.</p>
+        <p>Tapline is the system I wish someone had handed me on day one. No theory, no filler — the supplier links, the exact prices, and the words that work.</p>
+        <a class="link-blue" href="#" data-social="instagram">@yourhandle on Instagram <span class="arw" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 09 · FAQ ══════════════ -->
+<section class="sec sec-alt" id="faq">
+  <div class="shell shell-narrow">
+    <div class="sec-head reveal">
+      <div class="sec-bar"><span class="sec-n">09</span><span class="sec-l">Questions</span></div>
+      <h2>Questions worth asking.</h2>
+    </div>
+
+    <div class="faq" id="faqList">
+      <div class="qa reveal" data-d="1">
+        <button class="qa-q" aria-expanded="false">
+          <span>Do I need any technical skill to program the cards?</span>
+          <i aria-hidden="true"></i>
+        </button>
+        <div class="qa-a"><div><p>No. Programming a card means copying a business's Google review link and writing it to the chip with a free phone app. It takes under a minute per card, and the walkthrough covers both iPhone and Android from the first tap.</p></div></div>
+      </div>
+
+      <div class="qa reveal" data-d="1">
+        <button class="qa-q" aria-expanded="false">
+          <span>How much money do I need to start?</span>
+          <i aria-hidden="true"></i>
+        </button>
+        <div class="qa-a"><div><p>Beyond Tapline itself, plan on roughly $30–60 for your first batch of blank cards. There's no minimum-order supplier in the list, so you can start with ten cards and a demo sample rather than a box of five hundred.</p></div></div>
+      </div>
+
+      <div class="qa reveal" data-d="2">
+        <button class="qa-q" aria-expanded="false">
+          <span>Is this legal? Does it violate Google's policies?</span>
+          <i aria-hidden="true"></i>
+        </button>
+        <div class="qa-a"><div><p>The card links a customer to a business's ordinary Google review page — nothing more. What you must never do, and what Tapline tells you not to do, is gate the review on a rating, pay for reviews, or filter out unhappy customers. That's review-gating, it breaks Google's policy, and it can get a business's listing penalised. The pitch that works is simply making it effortless for happy customers to leave the review they already meant to leave.</p></div></div>
+      </div>
+
+      <div class="qa reveal" data-d="2">
+        <button class="qa-q" aria-expanded="false">
+          <span>Are the cards included in the price?</span>
+          <i aria-hidden="true"></i>
+        </button>
+        <div class="qa-a"><div><p>No — Tapline is the system, not the stock. You order blanks yourself from the suppliers in the list, which is what keeps your cost per card at a couple of dollars instead of a reseller's ten.</p></div></div>
+      </div>
+
+      <div class="qa reveal" data-d="3">
+        <button class="qa-q" aria-expanded="false">
+          <span>Will this work outside Canada?</span>
+          <i aria-hidden="true"></i>
+        </button>
+        <div class="qa-a"><div><p>Yes. Pricing is listed in CAD and the suppliers ship across North America, but the method itself is geography-neutral — every country has local businesses that want more Google reviews. Adjust the price ladder to your market.</p></div></div>
+      </div>
+
+      <div class="qa reveal" data-d="3">
+        <button class="qa-q" aria-expanded="false">
+          <span>What if it isn't for me?</span>
+          <i aria-hidden="true"></i>
+        </button>
+        <div class="qa-a"><div><p>Email within seven days of purchase and you get a full refund. No form, no interrogation.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FINAL CTA ══════════════ -->
+<section class="final">
+  <div class="shell final-in reveal">
+    <h2>Two dollars of plastic.<br>One conversation.</h2>
+    <p class="final-sub">Everything you need to run it is on the other side of this button.</p>
+    <div class="cta-row">
+      <a class="btn btn-split btn-split-inv btn-lg" href="#" data-buy="full-access"><span class="btn-arrow" aria-hidden="true"><span>→</span></span><span class="btn-label">Get the full method — $89 CAD</span></a>
+      <a class="btn btn-ghost btn-lg" href="#pricing">Compare options</a>
+    </div>
+    <dl class="specs specs-inv">
+        <div><dt>Delivery</dt><dd>Instant</dd></div>
+        <div><dt>Updates</dt><dd>Lifetime</dd></div>
+        <div><dt>Guarantee</dt><dd>7-day refund</dd></div>
+      </dl>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="site-foot">
+  <div class="shell">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#top" aria-label="Tapline home">
+          <img class="brand-logo" src="assets/img/logo.svg" alt="Tapline" width="286" height="70" decoding="async">
+        </a>
+        <p>Tap into income. Real system, real results.</p>
+      </div>
+
+      <nav class="foot-col" aria-label="Shop">
+        <h4>Shop</h4>
+        <a href="#pricing">Catalog</a>
+        <a href="#" data-link="cart">Cart</a>
+        <a href="#" data-link="account">Account</a>
+      </nav>
+
+      <nav class="foot-col" aria-label="Support">
+        <h4>Support</h4>
+        <a href="#" data-link="contact">Contact</a>
+        <a href="#faq">FAQ</a>
+        <a href="#" data-link="privacy">Privacy policy</a>
+        <a href="#" data-link="terms">Terms</a>
+      </nav>
+
+      <div class="foot-col foot-news">
+        <h4>Newsletter</h4>
+        <p>Supplier updates and new scripts. No spam.</p>
+        <form class="news" id="newsForm" novalidate>
+          <label class="sr" for="news-email">Email address</label>
+          <input id="news-email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
+          <button class="btn btn-blue btn-sm" type="submit">Subscribe</button>
+          <p class="news-msg" id="newsMsg" role="status"></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 Tapline. All rights reserved.</span>
+      <span class="foot-legal">Tapline sells educational material. It does not guarantee income of any amount.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
