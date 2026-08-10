@@ -196,7 +196,7 @@ h1,h2,h3,h4{
 .btn:active{ --sc:.97; }
 
 .btn-sm{ min-height:44px; padding:10px 22px; font-size:14px; }
-.btn-lg{ min-height:58px; padding:17px 36px; font-size:16.5px; }
+.btn-lg{ min-height:54px; padding:15px 34px; font-size:16px; }
 
 .btn-blue{ background:var(--blue); color:#fff; box-shadow:var(--sh-blue); }
 .btn-ink{ background:var(--ink); color:#fff; box-shadow:var(--sh-2); }
@@ -288,7 +288,7 @@ h1,h2,h3,h4{
 .mobile-nav .btn{ margin-top:20px; }
 
 /* ── Hero ─────────────────────────────────────────────────────── */
-.hero{ position:relative; padding-block:clamp(40px, 5vw, 64px) clamp(64px, 7.5vw, 96px); }
+.hero{ position:relative; padding-block:clamp(26px, 3vw, 40px) clamp(48px, 5.5vw, 72px); }
 .hero-in{
   display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
   gap:clamp(30px, 5vw, 64px); align-items:center;
@@ -296,9 +296,9 @@ h1,h2,h3,h4{
 /* Sized against the COLUMN, not the viewport: the copy occupies about half
    the shell, so viewport-scaled type overshoots badly past 1200px. */
 .hero h1{
-  font-size:clamp(44px, 5.4vw, 76px);
-  font-weight:800; letter-spacing:-.05em; line-height:.98;
-  margin-top:4px; text-wrap:balance;
+  font-size:clamp(38px, 4.2vw, 60px);
+  font-weight:800; letter-spacing:-.05em; line-height:1;
+  margin-top:0; text-wrap:balance;
 }
 .hero h1 em{
   font-style:normal; background:var(--blue); color:#fff;
@@ -306,12 +306,12 @@ h1,h2,h3,h4{
   box-decoration-break:clone; -webkit-box-decoration-break:clone;
 }
 
-.lede{ margin-top:22px; max-width:52ch; font-size:clamp(16px, 1.6vw, 18.5px); color:var(--muted); }
+.lede{ margin-top:18px; max-width:52ch; font-size:clamp(16px, 1.6vw, 18.5px); color:var(--muted); }
 
-.price-row{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-top:30px; }
+.price-row{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-top:24px; }
 .price{
   font-family:var(--f-display); font-weight:800;
-  font-size:clamp(36px, 4vw, 50px); letter-spacing:-.05em;
+  font-size:clamp(34px, 3.4vw, 44px); letter-spacing:-.05em;
   font-variant-numeric:tabular-nums;
 }
 .price small{ font-size:11px; color:var(--muted); margin-left:8px; vertical-align:super; }
@@ -321,14 +321,14 @@ h1,h2,h3,h4{
   padding:7px 14px; border-radius:var(--r-pill);
 }
 
-.cta-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+.cta-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:26px; }
 
 /* ── Spec strip ───────────────────────────────────────────────
    Three facts as small elevated tiles rather than loose tags. Cells are
    separated by space and shadow, not by rules. */
 .specs{
   display:grid; grid-template-columns:repeat(3,1fr);
-  gap:10px; margin-top:36px; max-width:560px;
+  gap:10px; margin-top:28px; max-width:560px;
 }
 .specs > div{
   background:var(--white); border-radius:var(--r-sm);
@@ -827,6 +827,30 @@ input[type=range]:active::-webkit-slider-thumb{ transform:scale(1.18); }
 }
 .js .reveal.in{ opacity:1; transform:none; }
 .js .reveal.done{ transition-delay:0ms; }
+
+/* ── Short desktop viewports ──────────────────────────────────
+   The constraint on "does the hero fit above the fold" is viewport
+   HEIGHT, so this keys off height rather than width. A nominal 1440x900
+   laptop only gives ~740px of viewport once the tab strip, address bar
+   and menu bar are subtracted — this band compresses the hero to fit
+   that, and leaves tall monitors generous. */
+@media (min-width:1041px) and (max-height:840px){
+  .hero{ padding-block:26px 60px; }
+  .hero h1{ font-size:clamp(38px, 3.8vw, 54px); }
+  .lede{ margin-top:18px; font-size:16.5px; }
+  .price-row{ margin-top:22px; }
+  .price{ font-size:42px; }
+  .cta-row{ margin-top:24px; }
+  .btn-lg{ min-height:52px; padding:14px 32px; font-size:16px; }
+  /* This block sits after .btn-split in source order, so the line above
+     would re-apply padding to the split button and inset its arrow block
+     away from the edges. Re-assert the zero. */
+  .btn-split{ padding:0; }
+  .specs{ margin-top:26px; }
+  .specs > div{ padding:12px 17px; }
+  .stage{ max-width:420px; }
+  .site-head .head-in{ height:72px; }
+}
 
 /* ── Responsive ───────────────────────────────────────────────── */
 @media (max-width:1040px){
