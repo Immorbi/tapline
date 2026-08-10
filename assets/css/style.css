@@ -148,7 +148,7 @@ h1,h2,h3,h4{
    No monospace anywhere — a wide mono with added tracking was what made
    these read as stretched. */
 .sec-bar, .specs dt, .step-meta dt, .plan-tag, .bx-n, .wall-n,
-.ko-label, .figs dt, .bar span, .foot-col h4, .cur, .tag-off,
+.ko-label, .figs dt, .bar span, .foot-col h3, .cur, .tag-off,
 .scale, .ps-mono, .hn, .step-t, .bx-list li,
 .price small, .plan-price small, .field label{
   font-family:var(--f-body);
@@ -356,7 +356,7 @@ h1,h2,h3,h4{
 }
 .card3d{
   position:relative; z-index:3;
-  width:min(336px, 78%); aspect-ratio:1/1.04;
+  width:min(336px, 78%); aspect-ratio:482/483;
   transform-style:preserve-3d;
   transform:rotateX(var(--rx,8deg)) rotateY(var(--ry,-15deg)) rotateZ(-2deg);
   transition:transform .45s var(--ease);
@@ -364,59 +364,26 @@ h1,h2,h3,h4{
 }
 @keyframes float{ 0%,100%{ translate:0 0 } 50%{ translate:0 -14px } }
 
-.plaque{
+/* The product shot. Kept as the supplied PNG rather than a vector redraw:
+   the printed artwork (a hand gripping the phone, a dense QR) never read
+   convincingly when rebuilt by hand, and this is the actual item being sold.
+   width/height sit on the <img> so the hero reserves the box before the
+   image loads and nothing shifts on first paint. */
+.plaque-photo{
   position:absolute; inset:0;
-  border-radius:30px; overflow:hidden;
-  background:var(--white); box-shadow:var(--sh-3);
-  display:flex; flex-direction:column;
-  /* Type inside scales with the plaque, not the viewport, so the object
-     keeps its proportions at every breakpoint. */
-  container-type:inline-size;
+  width:100%; height:100%;
+  object-fit:contain;
+  border-radius:30px;
+  filter:drop-shadow(0 4px 10px rgba(19,19,19,.10))
+         drop-shadow(0 26px 46px rgba(19,19,19,.22));
 }
-.plaque-top{
-  position:relative; background:var(--blue); flex:0 0 52%;
-  display:flex; align-items:center; gap:12px; padding:8% 7% 0;
-}
-.g-mark{
-  flex:none; width:29%; aspect-ratio:1;
-  background:#fff; border-radius:50%;
-  display:grid; place-items:center;
-}
-.g-mark svg{ width:64%; height:64%; }
-.plaque-head{ display:flex; flex-direction:column; line-height:1.05; color:#fff; }
-.ph-1{ font-weight:400; font-size:clamp(13px,4.6cqw,17px); }
-.ph-2{ font-family:var(--f-display); font-weight:700; font-size:clamp(17px,6.4cqw,23px); letter-spacing:-.03em; margin-top:2px; }
-.ph-stars{ color:#FFDD7A; font-size:clamp(13px,4.4cqw,17px); letter-spacing:.06em; margin-top:5px; }
 
-/* The wave is filled with the lower field's colour and sits on the seam,
-   so the two blocks read as one moulded object. */
-.plaque-wave{ position:absolute; left:0; right:0; bottom:-1px; width:100%; height:13%; }
-.plaque-wave path{ fill:var(--white); }
-
-.plaque-bottom{
-  flex:1; display:flex; align-items:flex-start; justify-content:center;
-  gap:5%; padding:3% 7% 7%;
-}
-.pb-col{ display:flex; flex-direction:column; align-items:center; gap:10px; flex:1; }
-.pb-or{ align-self:center; font-size:clamp(9px,3cqw,12px); color:var(--muted); }
-.pb-label{ font-weight:500; font-size:clamp(9px,3.2cqw,12px); color:var(--ink); text-align:center; }
-.pb-ico{
-  width:100%; max-width:78px; height:auto;
-  fill:none; stroke:var(--ink); stroke-width:2.1;
-  stroke-linecap:round; stroke-linejoin:round;
-}
-.pb-ico text{ font-family:var(--f-body); font-size:7.5px; font-weight:700; fill:var(--ink); stroke:none; }
-.pb-qr{ width:100%; max-width:64px; height:auto; }
-.qr-bracket{ fill:none; stroke:var(--ink); stroke-width:2.4; stroke-linecap:round; }
-.qr-mod rect{ fill:var(--ink); }
-/* The three finder squares are rings, not solid blocks. */
-.qr-mod rect:nth-child(-n+3){ fill:none; stroke:var(--ink); stroke-width:3.4; }
 
 /* Anchored at the lower-right corner: over the plaque's face it covered
    the product's own headline, and proof must not obscure its subject. */
 .review-pop{
-  position:absolute; z-index:5; right:-4%; bottom:1%;
-  width:min(252px, 66%);
+  position:absolute; z-index:5; right:-9%; bottom:-4%;
+  width:min(238px, 62%);
   background:var(--white); border-radius:var(--r);
   padding:16px; box-shadow:var(--sh-3);
   animation:popIn 4s var(--ease) infinite;
@@ -502,8 +469,8 @@ h1,h2,h3,h4{
 
 input[type=range]{
   -webkit-appearance:none; appearance:none;
-  width:100%; height:44px;      /* 44px hit area; the track stays 6px */
-  margin-block:-10px;
+  width:100%; height:46px;      /* measured 43px at 44 — 46 clears the floor */
+  margin-block:-11px;
   background:transparent; cursor:grab;
   touch-action:pan-y;           /* page still scrolls vertically on the slider */
 }
@@ -684,6 +651,7 @@ input[type=range]:active::-webkit-slider-thumb{ transform:scale(1.18); }
 .qa-q{
   width:100%; display:flex; align-items:center; justify-content:space-between;
   gap:24px; padding:24px 0; text-align:left;
+  touch-action:manipulation;      /* removes the 300ms tap delay */
   font-family:var(--f-display); font-weight:600;
   font-size:clamp(17px,2vw,21px); letter-spacing:-.03em;
   transition:color var(--d-hover) var(--ease);
@@ -731,7 +699,7 @@ input[type=range]:active::-webkit-slider-thumb{ transform:scale(1.18); }
 .site-foot{ background:var(--paper); padding-block:40px 32px; position:relative; z-index:2; }
 .foot-top{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1.5fr; gap:36px; padding-bottom:30px; }
 .foot-brand p{ margin-top:16px; color:var(--muted); font-size:14px; max-width:250px; }
-.foot-col h4{ font-size:10px; color:var(--muted-2); margin-bottom:10px; }
+.foot-col h3{ font-size:10px; color:var(--muted-2); margin-bottom:10px; }
 .foot-col a{
   display:flex; align-items:center; min-height:44px;   /* touch target floor */
   font-size:14.5px; color:var(--ink-2);
@@ -741,7 +709,8 @@ input[type=range]:active::-webkit-slider-thumb{ transform:scale(1.18); }
 .news{ display:flex; gap:8px; flex-wrap:wrap; }
 .news input{
   flex:1; min-width:0; background:var(--white);
-  border:0; border-radius:var(--r-pill); padding:14px 20px; font-size:14px;
+  border:0; border-radius:var(--r-pill); padding:14px 20px;
+  font-size:16px;                 /* iOS force-zooms on focus below 16px */
   /* The ring is a shadow, not a border — it can thicken on focus without
      the control changing size. It stays ≥3:1 so the field is identifiable. */
   box-shadow:var(--sh-1), 0 0 0 1px #A6A6A9;
